@@ -1,0 +1,232 @@
+:root{
+    --primary-color: #39C252;
+    --background: #082736;
+    --accent: rgb(255, 204, 0);
+    --neutre: white;
+    --texte: #575757;
+    --details: #333333e2;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+.cover{
+    background: linear-gradient(135deg, #0114044f 0%, #04220943 100%), url(../img/guinea-flag-wrinkled-dark-background-3d-render.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 30vh;
+    width: 100vw;
+}
+.profil-header {
+    color: var(--texte);
+    padding: 40px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 80px 120px;
+}
+
+.profil-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 8px solid white;
+    object-fit: cover;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -45%;
+}
+
+.profil-info h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.profil-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.profil-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--background);
+    display: block;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.contenus-section {
+    padding: 60px 220px;
+    background: #0827360c;
+
+}
+.contenus{
+    background: var(--neutre);
+    padding: 10px 60px;
+}
+.section-title {
+    font-weight: 400;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.section-title hr {
+    height: 1px;
+    width: 30px;
+    background: var(--primary-color);
+    border: none;
+    margin-right: 10px;
+}
+
+.contenus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.contenu {
+    margin: 100px 0;
+}
+
+.contenu-card:hover {
+    transform: translateY(-10px);
+}
+
+.contenu-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.contenu-body {
+    padding: 20px;
+}
+
+.contenu-titre {
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.contenu-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.description{
+    margin: 10px 0;
+}
+.description a{
+    color: var(--primary-color);
+}
+
+.btn-profil {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+    font-size: 0.8em;
+}
+
+.btn-profil:hover {
+    background: var(--details);
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .profil-header{
+        padding: 40px;
+    }
+    .profil-avatar{
+        width: 100px;
+        height: 100px;
+        border-width: 4px;
+        top: -20%;
+    }
+    .profil-info h1{
+        font-size: 1.8em;
+    }
+    .profil-meta{
+        flex-direction: column;
+    }
+
+    .contenus-section{
+        padding: 20px 30px;
+    }
+
+    .contenus{
+        padding: 15px;
+    }
+}
+
+/*scroll bar*/
+/* Pour Chrome, Edge, Safari (WebKit) */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(163, 163, 163);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}

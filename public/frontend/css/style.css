@@ -1,0 +1,754 @@
+:root {
+    --primary-color: #39C252;
+    --background: #082736;
+    --background2: #0827360a;
+    --accent: rgb(255, 204, 0);
+    --neutre: white;
+    --texte: #333333;
+    --details: #3333338d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+ul{
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.mobile{
+    display: none;
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--neutre);
+    border: 1px solid var(--accent);
+}
+.logo img{
+    width: 50px;
+}
+
+
+svg {
+    width: 15px;
+    height: 15px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 120px;
+    position: absolute;
+    width: 100vw;
+    z-index: 99;
+    color: var(--neutre);
+    transition: .5s ease;
+}
+
+.scrolled {
+    position: fixed;
+    background: var(--neutre);
+    color: var(--background);
+    padding: 25px 120px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.148);
+}
+
+.scrolled a,
+.scrolled .logo a {
+    color: var(--background);
+}
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 35px;
+    font-size: 0.9em;
+    color: var(--neutre);
+    transition: .5s ease;
+    position: relative;
+}
+
+nav a:hover{
+    color: var(--primary-color);
+}
+nav a::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: var(--primary-color);
+    left: 0;
+    bottom: -6px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+nav a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.user #role {
+    font-size: 0.7em;
+}
+
+.hero-section {
+    width: 100vw;
+    height: 100vh;
+    color: var(--neutre);
+    overflow: hidden;
+}
+
+.carousel-slides {
+    display: flex;
+    width: 400%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carousel-slide {
+    width: 25%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 120px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.slide-1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/photorealistic-portrait-african-woman.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.slide-2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../img/aerial-view-straight-dirt-road-from-village-with-trees-around.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    align-items: baseline;
+    text-align: start;
+}
+
+.slide-3 {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('../img/portrait-photorealistic-rastafari-woman-with-african-dreads.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    align-items: end;
+    text-align: end;
+}
+
+
+.slide-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+.slide-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.7s ease-out 0.2s, opacity 0.7s ease-out 0.2s;
+}
+
+.btn {
+    display: inline-block;
+    color: var(--background);
+    background: var(--neutre);
+    padding: 20px 30px;
+    border-radius: 5px;
+    border-left: 6px solid var(--primary-color);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: transform 0.7s ease-out 0.4s, opacity 0.7s ease-out 0.4s, all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    background: var(--texte);
+    color: var(--neutre);
+}
+
+/* Animation des éléments quand la slide est active */
+.carousel-slide.active .slide-title {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.carousel-slide.active .slide-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.carousel-slide.active .btn {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.nav-dot {
+    width: 12px;
+    height: 3px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.171);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background-color: white;
+    box-shadow: 0 0 10px white;
+    transform: scale(1.2);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.059);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.171);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.cover{
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.721), rgba(0, 0, 0, 0.742)), url('../img/instruments-carnival.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+    padding: 40px 120px;
+    color: var(--neutre);
+}
+.cover h1{
+    color: var(--neutre);
+    margin: 20px 0;
+}
+.cover p a{
+    color: var(--neutre);
+}
+.cover p span{
+    color: var(--primary-color);
+    margin: 10px;
+}
+
+.about,
+.langues-section {
+    width: 100vw;
+    padding: 100px 120px;
+    display: flex;
+    color: var(--texte);
+}
+
+.part-left,
+.part-right {
+    flex: 1;
+    position: relative;
+}
+.part-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.part-right img{
+    height: 300px;
+}
+
+.section-title {
+    font-weight: 400;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.section-title hr {
+    height: 1px;
+    width: 30px;
+    background: var(--primary-color);
+    border: none;
+    margin-right: 10px;
+}
+
+.grand-title {
+    margin: 20px 0;
+    font-weight: 900;
+    color: var(--texte);
+}
+
+.section-text {
+    margin: 20px 0;
+}
+
+.section-text span {
+    color: var(--primary-color);
+}
+
+.section-text a {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.sous-title {
+    font-style: italic;
+    color: var(--details);
+    font-size: 0.9em;
+}
+
+.sous-title a {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-style: normal;
+}
+
+.part-left .down {
+    display: flex;
+    width: 30vw;
+}
+
+.part-left .down p {
+    font-size: 0.8em;
+    color: var(--texte);
+    margin: 0 10px;
+}
+
+.part-left .down p span {
+    color: var(--primary-color);
+}
+
+.contenus {
+    background: var(--background2);
+    padding: 80px 0;
+}
+
+.title-zone {
+    padding: 20px 120px;
+}
+
+.contenu-cards {
+    padding: 20px 110px;
+    display: grid;
+    grid-template-columns: 28vw 28vw 28vw;
+    position: relative;
+}
+
+.contenu-card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.156);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5%;
+    transition: .5s ease;
+    background: var(--neutre);
+}
+.contenu-card:hover{
+    transform: translateY(-10px);
+}
+
+.contenu-card .image {
+    height: 28vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.contenu-card .image img {
+    width: 100%;
+}
+
+.contenu-card .texte {
+    padding: 20px 30px;
+    background: var(--neutre);
+}
+
+.contenu-card .texte .categorie {
+    font-size: 0.8em;
+    color: var(--primary-color);
+}
+
+.contenu-card .texte .titre {
+    color: var(--texte);
+    font-size: 1.8em;
+    margin: 10px 0;
+}
+
+.contenu-card .texte .description {
+    font-size: 0.9em;
+    color: var(--texte);
+}
+
+.contenu-card .down {
+    display: flex;
+    align-items: center;
+    background: var(--neutre);
+    padding: 20px 30px;
+}
+
+.contenu-card .down .date {
+    font-size: 0.9em;
+    margin-right: 20px;
+    color: var(--texte);
+}
+
+.contenu-card .down button {
+    background: transparent;
+    border: none;
+    color: var(--details);
+}
+
+.contenu-card .down p {
+    color: var(--texte);
+    font-size: 0.7em;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.read-more {
+    color: var(--primary-color);
+}
+
+.regions-section {
+    padding: 80px 0;
+}
+
+.stats-section {
+    background: var(--background);
+    padding: 80px 0;
+}
+
+.stats-section .grand-title {
+    color: var(--neutre);
+}
+
+.stats-section .stats {
+    display: flex;
+    align-items: center;
+    padding: 40px 120px;
+}
+
+.stats-section .stats .stat {
+    flex: 1;
+    color: var(--neutre);
+}
+
+.stats-section .stats .stat svg {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-color);
+}
+
+.invite-section {
+    background: linear-gradient(130deg, #082736c4, #082736a1), url('../img/neolithic-period-lifestyle.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 80px 0;
+    color: var(--neutre);
+    width: 100vw;
+}
+
+.invite-section .grand-title {
+    color: var(--neutre);
+}
+
+.invite-section .invite-text {
+    padding: 20px 120px;
+}
+
+.invite-section .invite-text p {
+    margin: 20px 0;
+}
+
+.invite-section .invite-text .step {
+    font-size: 1.2em;
+}
+
+.invite-section .invite-text .sous-title {
+    color: var(--neutre);
+    margin: 0 0 40px;
+    transition: .5s ease;
+}
+.invite-section .invite-text .sous-title:hover {
+    color: var(--primary-color);
+}
+
+.btn-two {
+    padding: 15px 30px;
+    background: var(--primary-color);
+    color: var(--neutre);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: .5s ease;
+    margin-top: 10px;
+}
+
+.btn-two:hover {
+    background: var(--texte);
+    color: var(--neutre);
+}
+
+/* Barre de recherche */
+.search-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 120px;
+    background: var(--background2);
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    width: 300px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+}
+
+.search-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+footer {
+    padding: 40px 120px;
+    background: var(--texte);
+    color: var(--neutre);
+}
+
+footer p {
+    font-size: 0.9em;
+    transition: .5s ease;
+}
+footer p:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    header{
+        padding: 50px 40px;
+    }
+    header .web {
+        display: none;
+    }
+
+    header .mobile{
+        display: flex;
+    }
+    .mobile .mobile-btn{
+        color: var(--neutre);
+        background: transparent;
+        border: none;
+    }
+    .mobile .mobile-btn svg{
+        width: 30px;
+        height: 30px;
+    }
+    .mobile .mobile-menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100vw;
+        height: 90vh;
+        background: var(--neutre);
+        padding: 30px 0;
+        border-top: 1px solid #08273616;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: .5s ease;
+        opacity: 0;
+    }
+    .mobile .visible{
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    .mobile-menu ul li{
+        padding: 10px 20px;
+    }
+    .mobile-menu ul li a{
+        color: var(--background);
+    }
+    .scrolled{
+        padding: 10px 40px;
+    }
+    .scrolled .mobile .mobile-btn{
+        color: var(--background);
+    }
+
+    .cover{
+        padding: 40px;
+        height: 100vh;
+    }
+    .carousel-slide {
+        padding: 20px 40px;
+    }
+
+    .slide-title {
+        font-size: 2.1em;
+        margin: 20px 0;
+    }
+    .slide-text{
+        margin: 20px 0;
+    }
+    .btn{
+        padding: 15px 20px;
+    }
+    .carousel-btn{
+        font-size: 0.6em;
+    }
+
+    .about,
+.langues-section{
+        padding: 60px 40px;
+        flex-direction: column;
+    }
+    .grand-title{
+        font-size: 2em;
+    }
+    .title-zone{
+        padding: 0 40px;
+    }
+    .contenu-cards{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    .regions-section{
+        padding: 60px 0;
+    }
+    .invite-section{
+        padding: 60px 0;
+    }
+    .invite-section .invite-text{
+        padding: 20px 40px;
+    }
+    .stats-section{
+        padding: 60px 0;
+    }
+    .stats-section .stats{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 40px;
+    }
+    .stat{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    .stats-section .stats .stat svg{
+        height: 20px;
+        width: 20px;
+    }
+    .search-bar{
+        padding: 40px;
+    }
+    .search-input{
+        width: 200px;
+    }
+    footer{
+        padding: 40px;
+    }
+}
+
+
+/*scroll bar*/
+/* Pour Chrome, Edge, Safari (WebKit) */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 1px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(163, 163, 163);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
