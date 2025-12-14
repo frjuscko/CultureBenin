@@ -1,6 +1,7 @@
 :root{
     --primary-color: #39C252;
     --background: #082736;
+    --background1: #252525;
     --accent: rgb(255, 204, 0);
     --neutre: white;
     --texte: #575757;
@@ -177,13 +178,47 @@ a{
 }
 
 .btn-profil:hover {
-    background: var(--details);
+    background: var(--background1);
 }
 
 .actions {
     display: flex;
     gap: 15px;
     margin-top: 20px;
+}
+
+.no-content{
+    padding: 60px 120px;
+}
+.no-content p{
+    color: var(--details);
+    text-align: center;
+}
+
+/* Styles pour les messages d'alerte */
+.alert {
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 10px 20px;
+    font-size: 0.9em;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-warning {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
 }
 
 @media (max-width: 768px) {
@@ -209,6 +244,9 @@ a{
 
     .contenus{
         padding: 15px;
+    }
+    .no-content{
+        padding: 40px;
     }
 }
 

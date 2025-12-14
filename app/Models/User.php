@@ -99,39 +99,39 @@ class User extends Authenticatable
     public function isAdmin()
     {
         if (is_numeric($this->role)) {
-            $this->load('roleinfo');
+            $this->load('getRole');
         }
 
-        return $this->roleinfo && $this->roleinfo->libelle === 'Administrateur';
+        return $this->getRole && $this->getRole->libelle === 'Administrateur';
     }
 
     // Méthode pour vérifier si l'utilisateur est modérateur
     public function isModerator()
     {
         if (is_numeric($this->role)) {
-            $this->load('roleinfo');
+            $this->load('getRole');
         }
 
-        return $this->roleinfo && $this->roleinfo->libelle === 'Modérateur';
+        return $this->getRole && $this->getRole->libelle === 'Modérateur';
     }
 
     // Méthode pour vérifier si l'utilisateur est contributeur
     public function isContributeur()
     {
         if (is_numeric($this->role)) {
-            $this->load('roleinfo');
+            $this->load('getRole');
         }
 
-        return $this->roleinfo && $this->roleinfo->libelle === 'Contributeur';
+        return $this->getRole && $this->getRole->libelle === 'Contributeur';
     }
 
     // Méthode pour vérifier si l'utilisateur est lecteur
     public function isLecteur()
     {
         if (is_numeric($this->role)) {
-            $this->load('roleinfo');
+            $this->load('getRole');
         }
 
-        return $this->roleinfo && $this->roleinfo->libelle === 'Lecteur';
+        return $this->getRole && $this->getRole->libelle === 'Lecteur';
     }
 }

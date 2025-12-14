@@ -24,6 +24,8 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $middleware->alias([
             'contributeur' => \App\Http\Middleware\Contributeur::class,
+            'moderateur' => \App\Http\Middleware\Moderateur::class,
+            'admin' => \App\Http\Middleware\Admin::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContenusController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfilController;
@@ -11,11 +12,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/profil/{user}', [ProfilController::class, 'index'])->name('profil');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
-});
+
+Route::get('/profil/{user}', [ProfilController::class, 'index'])->name('profil');
+
+Route::get('/contenu/{id}', [ContenusController::class, 'show'])->name('contenu.show');
+
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);

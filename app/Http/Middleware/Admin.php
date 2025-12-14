@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class Contributeur
+class Admin
 {
     public function handle(Request $request, Closure $next): Response
     {
@@ -17,7 +17,7 @@ class Contributeur
         }
 
         // Vérifier le rôle (libellé)
-        if ($request->user()->getRole->libelle !== "Contributeur") {
+        if ($request->user()->getRole->libelle !== "Administrateur") {
             return redirect('/');
         }
 

@@ -33,15 +33,15 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
 
             // Récupérer l'utilisateur avec sa relation role
-            $user = Auth::user()->load('roleinfo');
+            $user = Auth::user()->load('getRole');
 
             // Vérifier le rôle et rediriger
             if ($user->isAdmin()) {
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/admin');
             } elseif ($user->isContributeur()) {
-                return redirect()->intended('/contributeur');
+                return redirect()->intended('/bord');
             } elseif ($user->isModerator()) {
-                return redirect()->intended('/moderateur');
+                return redirect()->intended('/bord');
             } else {
                 return redirect()->intended('/');
             }

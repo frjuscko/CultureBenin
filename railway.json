@@ -1,5 +1,11 @@
 {
+  "$schema": "https://railway.app/railway.schema.json",
   "build": {
+    "builder": "RAILPACK",
+    "buildCommand": "YOUR_BUILD_COMMAND",
     "runtime": "php-8.4"
+  },
+  "deploy": {
+    "startCommand": "php artisan serve --host=0.0.0.0 --port=${PORT}"
   }
 }

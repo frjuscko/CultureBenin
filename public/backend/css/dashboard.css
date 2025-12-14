@@ -513,6 +513,7 @@ table tr td button {
     background: transparent;
     border: none;
     color: var(--primary-color);
+    cursor: pointer;
 }
 
 table svg {
